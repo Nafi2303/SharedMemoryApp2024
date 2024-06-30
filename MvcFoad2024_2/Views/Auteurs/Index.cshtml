@@ -1,0 +1,76 @@
+﻿@model IEnumerable<MvcFoad2024_2.Auteur>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des auteurs</h2>
+
+<p>
+    @Html.ActionLink("Nouveau", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomUtilisateur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrenomUtilisateur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelUtilisateur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailUtilisateur)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MotDePasseUtilisateur)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.MatriculeUtilisateur)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.EtatUtilisateur)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Anciennete)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomUtilisateur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrenomUtilisateur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelUtilisateur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailUtilisateur)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MotDePasseUtilisateur)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.MatriculeUtilisateur)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.EtatUtilisateur)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Anciennete)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdUtilisateur }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdUtilisateur }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdUtilisateur })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,83 @@
+﻿@model MvcFoad2024_2.Auteur
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Auteur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrenomUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrenomUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotDePasseUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotDePasseUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatriculeUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatriculeUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EtatUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatUtilisateur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anciennete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anciennete)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUtilisateur }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
