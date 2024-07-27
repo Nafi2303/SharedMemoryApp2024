@@ -276,12 +276,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "Auteurs")">
+                        <a href="experts.html">
                             <i class="bi bi-circle"></i><span>Experts</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-badges.html">
+                        <a href="@Url.Action("Index", "Lecteurs")">
                             <i class="bi bi-circle"></i><span>Lecteurs</span>
                         </a>
                     </li>
@@ -296,13 +296,13 @@
 
     <main id="main" class="main">
 
-        <div class="pagetitle">
-            <h1>Blank Page</h1>
+        <div class="PageTitle">
+            <h1>Index</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Pages</li>
-                    <li class="breadcrumb-item active">Blank</li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Auteurs")">Auteurs</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index")">Index</a></li>
+                    <li class="breadcrumb-item active"><a href="@Url.Action("Index", "Auteurs")">Liste des auteurs</a></li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -318,7 +318,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>ISI Memoire</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
@@ -330,6 +330,8 @@
 
 
     @Scripts.Render("~/bundles/foadjs")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
     @RenderSection("scripts", required: false)
 

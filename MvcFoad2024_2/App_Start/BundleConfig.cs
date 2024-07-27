@@ -21,6 +21,9 @@ namespace MvcFoad2024_2
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
+            
+            bundles.Add(new Bundle("~/bundles/employee").Include(
+                      "~/Scripts/employee.js"));
 
             bundles.Add(new Bundle("~/bundles/foadjs").Include(
                       "~/assets/vendor/apexcharts/apexcharts.js",
@@ -37,7 +40,7 @@ namespace MvcFoad2024_2
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/foadcss").Include(
+            bundles.Add(new StyleBundle("~/Content/foadCSS").Include(
                      "~/assets/vendor/bootstrap/css/bootstrap.min.css",
                      "~/assets/vendor/bootstrap-icons/bootstrap-icons.css",
                      "~/assets/vendor/boxicons/css/boxicons.min.css",
@@ -45,7 +48,8 @@ namespace MvcFoad2024_2
                      "~/assets/vendor/quill/quill.bubble.css",
                      "~/assets/vendor/remixicon/remixicon.css",
                      "~/assets/vendor/simple-datatables/style.css",
-                     "~/assets/css/style.css"));
+                     "~/assets/css/style.css",
+                     "~/Content/PagedList.css"));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model PagedList.PagedList<MvcFoad2024_2.Auteur>
+﻿@model PagedList.PagedList<MvcFoad2024_2.Lecteur>
 @using PagedList.Mvc;
 
 @{
@@ -6,10 +6,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nouveau</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Nouveau", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,18 +26,18 @@
             @Html.DisplayNameFor(model => model.FirstOrDefault().EmailUtilisateur)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.MotDePasseUtilisateur)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MotDePasseUtilisateur)
         </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().MatriculeUtilisateur)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.EtatUtilisateur)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().EtatUtilisateur)
         </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Anciennete)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().specialite)
         </th>
-        <th>Action</th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -64,7 +64,7 @@
             @Html.DisplayFor(modelItem => item.EtatUtilisateur)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.Anciennete)
+            @Html.DisplayFor(modelItem => item.specialite)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IdUtilisateur }) |
@@ -76,5 +76,5 @@
 
 </table>
 
-<br />
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
+<br/>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

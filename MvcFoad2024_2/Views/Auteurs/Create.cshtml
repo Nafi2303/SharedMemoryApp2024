@@ -1,14 +1,11 @@
 ﻿@model MvcFoad2024_2.Auteur
 
 @{
-    ViewBag.Title = "Nouveau";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="col-lg-6">
 
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Nouveau auteur</h5>
+<h2>Nouveau auteur</h2>
 
             @using (Html.BeginForm())
             {
@@ -84,22 +81,19 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-primary" />
+                            <input type="submit" value="Create" class="btn btn-default" />
                         </div>
                     </div>
                 </div>
             }
-
-
-            </div>
-        </div>
-    </div>
-
 
             <div>
                 @Html.ActionLink("Back to List", "Index")
             </div>
 
             @section Scripts {
+                @Scripts.Render("~/bundles/foadCSS")
+                @Scripts.Render("~/bundles/foadjs")
                 @Scripts.Render("~/bundles/jqueryval")
+
             }

@@ -11,118 +11,113 @@ using MvcFoad2024_2.Models;
 
 using PagedList;
 
-
 namespace MvcFoad2024_2.Controllers
 {
-    public class AuteursController : Controller
+    public class LecteursController : Controller
     {
         private bdMemorySharedContext db = new bdMemorySharedContext();
         private int sizePage = 1;
-
-        // GET: Auteurs
-        public ActionResult Index(int? page)
+        // GET: Lecteurs
+        public ActionResult Index(int? page )
         {
-            page = page.HasValue? page: 1;
-            //ViewBag.PageTitle = "Liste des auteurs";
-            //ViewBag.Controller = "Auteurs";
-            //ViewBag.View = "Index";
-            //ViewBag.Action = "Liste des auteurs";
-            var lesAuteurs = db.auteurs.ToList();
-            int pageNumner=(page ?? 1);
-            return View(lesAuteurs.ToPagedList(pageNumner, sizePage));
+            page = page.HasValue ? page : 1;
+            var lesLecteurs = db.lecteurs.ToList();
+            int pageNumner = (page ?? 1);
+            return View(lesLecteurs.ToPagedList(pageNumner, sizePage));
+           
         }
 
-        // GET: Auteurs/Details/5
+        // GET: Lecteurs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Auteur auteur = db.auteurs.Find(id);
-            if (auteur == null)
+            Lecteur lecteur = db.lecteurs.Find(id);
+            if (lecteur == null)
             {
                 return HttpNotFound();
             }
-            return View(auteur);
+            return View(lecteur);
         }
 
-        // GET: Auteurs/Create
+        // GET: Lecteurs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Auteurs/Create
+        // POST: Lecteurs/Create
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdUtilisateur,NomUtilisateur,PrenomUtilisateur,TelUtilisateur,EmailUtilisateur,MotDePasseUtilisateur,MatriculeUtilisateur,EtatUtilisateur,Anciennete")] Auteur auteur)
+        public ActionResult Create([Bind(Include = "IdUtilisateur,NomUtilisateur,PrenomUtilisateur,TelUtilisateur,EmailUtilisateur,MotDePasseUtilisateur,MatriculeUtilisateur,EtatUtilisateur,specialite")] Lecteur lecteur)
         {
             if (ModelState.IsValid)
             {
-                db.utilisateurs.Add(auteur);
+                db.utilisateurs.Add(lecteur);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(auteur);
+            return View(lecteur);
         }
 
-        // GET: Auteurs/Edit/5
+        // GET: Lecteurs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Auteur auteur = db.auteurs.Find(id);
-            if (auteur == null)
+            Lecteur lecteur = db.lecteurs.Find(id);
+            if (lecteur == null)
             {
                 return HttpNotFound();
             }
-            return View(auteur);
+            return View(lecteur);
         }
 
-        // POST: Auteurs/Edit/5
+        // POST: Lecteurs/Edit/5
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdUtilisateur,NomUtilisateur,PrenomUtilisateur,TelUtilisateur,EmailUtilisateur,MotDePasseUtilisateur,MatriculeUtilisateur,EtatUtilisateur,Anciennete")] Auteur auteur)
+        public ActionResult Edit([Bind(Include = "IdUtilisateur,NomUtilisateur,PrenomUtilisateur,TelUtilisateur,EmailUtilisateur,MotDePasseUtilisateur,MatriculeUtilisateur,EtatUtilisateur,specialite")] Lecteur lecteur)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(auteur).State = EntityState.Modified;
+                db.Entry(lecteur).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(auteur);
+            return View(lecteur);
         }
 
-        // GET: Auteurs/Delete/5
+        // GET: Lecteurs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Auteur auteur = db.auteurs.Find(id);
-            if (auteur == null)
+            Lecteur lecteur = db.lecteurs.Find(id);
+            if (lecteur == null)
             {
                 return HttpNotFound();
             }
-            return View(auteur);
+            return View(lecteur);
         }
 
-        // POST: Auteurs/Delete/5
+        // POST: Lecteurs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Auteur auteur = db.auteurs.Find(id);
-            db.utilisateurs.Remove(auteur);
+            Lecteur lecteur = db.lecteurs.Find(id);
+            db.utilisateurs.Remove(lecteur);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

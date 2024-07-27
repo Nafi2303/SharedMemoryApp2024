@@ -26,6 +26,10 @@ namespace MvcFoad2024_2.Models
 
         public DbSet<Document> documents { get; set; }
 
+        public DbSet<MemoireAuteur> memoireAuteurs { get; set; }
+
+        public DbSet<Employee> employee { get; set; }
+
         public DbSet<Lecteur> lecteurs { get; set; }
     }
 }
