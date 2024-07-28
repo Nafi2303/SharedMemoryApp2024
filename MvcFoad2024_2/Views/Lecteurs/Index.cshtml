@@ -67,9 +67,15 @@
             @Html.DisplayFor(modelItem => item.specialite)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUtilisateur }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdUtilisateur }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdUtilisateur })
+            <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="edit-icon" title="Edit">
+                <i class="ri-edit-2-fill"></i>
+            </a> |
+            <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="details-icon" title="Details">
+                <i class="ri-article-fill"></i>
+            </a> |
+            <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="delete-icon" title="Delete">
+                <i class="ri-delete-bin-5-fill"></i>
+            </a>
         </td>
     </tr>
 }

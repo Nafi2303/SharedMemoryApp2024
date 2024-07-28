@@ -15,9 +15,9 @@ namespace MvcFoad2024_2.Models
         public int IdUtilisateur { get; set; }
         [Display(Name = "Nom"), Required(ErrorMessage = "*"), MaxLength(80, ErrorMessage = "La taille maximale est de 80 caracteres")]
         public string NomUtilisateur { get; set; }
-        [Display(Name = "Prenom"), Required(ErrorMessage = "*"), MaxLength(80, ErrorMessage = "La taille maximale est de 80 caracteres")]
+        [Display(Name = "Prénom"), Required(ErrorMessage = "*"), MaxLength(80, ErrorMessage = "La taille maximale est de 80 caracteres")]
         public string PrenomUtilisateur { get; set; }
-        [Display(Name = "Numero"), MaxLength(15, ErrorMessage = "La taille maximale est de 15 caracteres")]
+        [Display(Name = "Numéro"), MaxLength(15, ErrorMessage = "La taille maximale est de 15 caracteres")]
         public string TelUtilisateur { get; set; }
         [Display(Name = "Email"), Required(ErrorMessage = "*"), MaxLength(80, ErrorMessage = "La taille maximale est de 80 caracteres")]
         [DataType(DataType.EmailAddress)]

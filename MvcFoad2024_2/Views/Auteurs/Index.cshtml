@@ -7,10 +7,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Liste des auteurs</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nouveau", "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,19 +26,19 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().EmailUtilisateur)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().MotDePasseUtilisateur)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().MatriculeUtilisateur)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().EtatUtilisateur)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Anciennete)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
     @foreach (var item in Model)
@@ -56,22 +56,28 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EmailUtilisateur)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.MotDePasseUtilisateur)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.MatriculeUtilisateur)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.EtatUtilisateur)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Anciennete)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdUtilisateur }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdUtilisateur }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdUtilisateur })
+                <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="edit-icon" title="Edit">
+                    <i class="ri-edit-2-fill"></i>
+                </a> |
+                <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="details-icon" title="Details">
+                    <i class="ri-article-fill"></i>
+                </a> |
+                <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="delete-icon" title="Delete">
+                    <i class="ri-delete-bin-5-fill"></i>
+                </a>
             </td>
         </tr>
     }
