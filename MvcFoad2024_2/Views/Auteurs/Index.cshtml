@@ -1,15 +1,16 @@
-﻿@model PagedList.PagedList<MvcFoad2024_2.Auteur>
+﻿@model PagedList.PagedList<MvcFoad2024_2.Models.Auteur>
 @using PagedList.Mvc;
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nouveau</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Nouveau", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -25,56 +26,57 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().EmailUtilisateur)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.MotDePasseUtilisateur)
-        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MotDePasseUtilisateur)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().MatriculeUtilisateur)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.EtatUtilisateur)
-        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().EtatUtilisateur)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Anciennete)
         </th>
-        <th>Action</th>
+        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomUtilisateur)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrenomUtilisateur)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelUtilisateur)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailUtilisateur)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.MotDePasseUtilisateur)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.MatriculeUtilisateur)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.EtatUtilisateur)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Anciennete)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUtilisateur }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdUtilisateur }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdUtilisateur })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrenomUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotDePasseUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatriculeUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtatUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anciennete)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdUtilisateur }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdUtilisateur }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdUtilisateur })
+            </td>
+        </tr>
+    }
 
 </table>
 
 <br />
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

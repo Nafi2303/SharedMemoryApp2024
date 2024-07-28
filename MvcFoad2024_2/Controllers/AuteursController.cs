@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MvcFoad2024_2;
 using MvcFoad2024_2.Models;
 
 using PagedList;
-
 
 namespace MvcFoad2024_2.Controllers
 {
@@ -22,13 +21,9 @@ namespace MvcFoad2024_2.Controllers
         // GET: Auteurs
         public ActionResult Index(int? page)
         {
-            page = page.HasValue? page: 1;
-            //ViewBag.PageTitle = "Liste des auteurs";
-            //ViewBag.Controller = "Auteurs";
-            //ViewBag.View = "Index";
-            //ViewBag.Action = "Liste des auteurs";
+            page = page.HasValue ? page : 1;
             var lesAuteurs = db.auteurs.ToList();
-            int pageNumner=(page ?? 1);
+            int pageNumner = (page ?? 1);
             return View(lesAuteurs.ToPagedList(pageNumner, sizePage));
         }
 

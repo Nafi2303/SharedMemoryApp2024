@@ -691,12 +691,12 @@
     <Content Include="Views\Lecteurs\Details.cshtml" />
     <Content Include="Views\Lecteurs\Edit.cshtml" />
     <Content Include="Views\Lecteurs\Index.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Auteurs\Create.cshtml" />
     <Content Include="Views\Auteurs\Delete.cshtml" />
     <Content Include="Views\Auteurs\Details.cshtml" />
     <Content Include="Views\Auteurs\Edit.cshtml" />
     <Content Include="Views\Auteurs\Index.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

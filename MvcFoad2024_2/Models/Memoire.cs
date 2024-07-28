@@ -40,7 +40,7 @@ namespace MvcFoad2024_2.Models
         //public Document Document { get; set; }
 
         [Required]
-        public virtual ICollection<Auteur> auteurs { get; set;}
+      //  public virtual ICollection<Auteur> auteurs { get; set;}
 
         public virtual ICollection<Lecteur> lecteurs { get; set; }
     }
