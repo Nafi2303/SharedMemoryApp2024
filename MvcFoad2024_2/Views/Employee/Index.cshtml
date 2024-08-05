@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MvcFoad2024_2.Models.Employee>
+@using MvcFoad2024_2.Models
 
 @{
     ViewBag.Title = "Index";
@@ -6,28 +7,28 @@
 }
 
 <div class="container">
-    <h2>Employees Record</h2>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Employee</button><br /><br />
+    <h2>@ResourceFr.TitreListeEmployes </h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">@ResourceFr.AddEmploye</button><br /><br />
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>
-                    ID
+                    @ResourceFr.IdEmploye
                 </th>
                 <th>
-                    Name
+                    @ResourceFr.NomEmploye
                 </th>
                 <th>
-                    Age
+                    @ResourceFr.AgeEmploye
                 </th>
                 <th>
-                    State
+                    @ResourceFr.EtatEmploye
                 </th>
                 <th>
-                    Country
+                    @ResourceFr.PaysEmploye
                 </th>
                 <th>
-                    Action
+                    @ResourceFr.Action
                 </th>
             </tr>
         </thead>
@@ -43,38 +44,38 @@
                 @*<button type="button" class="close" data-dissmiss="modal"><span
                     aria-hidden="true">×</span></button>*@
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
+                <h4 class="modal-title" id="myModalLabel">@ResourceFr.AddEmploye</h4>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="EmployeeId">ID</label>
+                        <label for="EmployeeId">@ResourceFr.IdEmploye</label>
                         <input type="text" class="form-control" id="EmployeeID"
                                placeholder="Id" disabled="disabled" />
                     </div>
 
                     <div class="form-group">
 
-                        <label for="Name">Name</label>
+                        <label for="Name">@ResourceFr.NomEmploye</label>
                         <input type="text" class="form-control" id="Name"
                                placeholder="Name" />
                     </div>
                     <div class="form-group">
-                        <label for="Age">Age</label>
+                        <label for="Age">@ResourceFr.AgeEmploye</label>
                         <input type="text" class="form-control" id="Age"
                                placeholder="Age" />
                     </div>
 
                     <div class="form-group">
 
-                        <label for="State">State</label>
+                        <label for="State">@ResourceFr.EtatEmploye</label>
                         <input type="text" class="form-control" id="State"
                                placeholder="State" />
                     </div>
 
                     <div class="form-group">
 
-                        <label for="Country">Country</label>
+                        <label for="Country">@ResourceFr.PaysEmploye</label>
                         <input type="text" class="form-control" id="Country"
                                placeholder="Country" />
                     </div>
@@ -83,16 +84,16 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btnAdd"
                         onclick="return Add();">
-                    Add
+                    @ResourceFr.btnAjouter
                 </button>
                 <button type="button" class="btn btn-primary" id="btnUpdate"
                         style="display:none;" onclick="Update();">
-                    Update
+                    @ResourceFr.btnModifier
                 </button>
 
                 <button type="button" class="btn btn-default" data-
                         dismiss="modal">
-                    Close
+                    @ResourceFr.btnFermer
                 </button>
 
             </div>
