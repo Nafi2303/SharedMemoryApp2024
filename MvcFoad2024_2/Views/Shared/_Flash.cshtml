@@ -1,0 +1,24 @@
+﻿@using MvcFoad2024_2.App_Start
+
+@helper FlashMessage(System.Web.Mvc.TempDataDictionary tempData)
+{
+    <div class="flash-message">
+        @foreach (Flashlevel level in (Flashlevel[])Enum.GetValues(typeof(Flashlevel)))
+        {
+            string type = level.ToString().ToLower();
+            string key = "flash-" + type;
+
+            if (tempData.ContainsKey(key))
+            {
+                IList<string> messages = (IList<string>)tempData[key];
+
+                foreach (string message in messages)
+                {
+                    <p class="alert alert-@type" role="alert">@message</p>//afficher le message avec type
+                }
+            }
+        }
+    </div>
+}
+
+@FlashMessage(TempData)

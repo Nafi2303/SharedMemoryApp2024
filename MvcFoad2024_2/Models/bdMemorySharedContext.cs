@@ -30,6 +30,10 @@ namespace MvcFoad2024_2.Models
 
         public DbSet<Employee> employee { get; set; }
 
+        public DbSet<Profil> profils { get; set; }
+
         public DbSet<Lecteur> lecteurs { get; set; }
+        public DbSet<Td_Erreur> td_Erreurs { get; set; }
+
     }
 }

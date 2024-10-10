@@ -11,9 +11,17 @@ namespace MvcFoad2024_2.Controllers
 {
     public class HomeController : Controller
     {
+
+        /// <summary>
+        /// page d'acceuil
+        /// </summary>
+        /// <returns>vues</returns>
+        [Authorize(Roles ="Admin,Auteurs")]
         public ActionResult Index()
         {
-            this.Flash(ResourceFr.welcome, Flashlevel.success);
+            GMailer.senMail("nfarah@groupeisi.com", "test", "Ce mail est un test");
+            Util.WriteLogSystem("Home-Index", "Hello ! application run");
+            this.Flash(ResourceFr.Welcome, Flashlevel.success);
             return View();
         }
 

@@ -156,7 +156,11 @@
   <data name="TitreListeEmployes" xml:space="preserve">
     <value>Liste des employés</value>
   </data>
-  <data name="welcome" xml:space="preserve">
+  <data name="Welcome" xml:space="preserve">
     <value>Bienvenue dans notre platforme</value>
+  </data>
+  <data name="Anciennete" xml:space="preserve">
+    <value>Ancienneté</value>
+    <comment>Ancienneté</comment>
   </data>
 </root>

@@ -21,7 +21,7 @@ namespace MvcFoad2024_2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("connSharedMemory", throwIfV1Schema: false)
         {
         }
 

@@ -88,6 +88,15 @@ namespace MvcFoad2024_2.Models {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Ancienneté.
+        /// </summary>
+        public static string Anciennete {
+            get {
+                return ResourceManager.GetString("Anciennete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Application de partage des documents mémoire.
         /// </summary>
         public static string APropos {
@@ -180,9 +189,9 @@ namespace MvcFoad2024_2.Models {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Bienvenue dans notre platforme.
         /// </summary>
-        public static string welcome {
+        public static string Welcome {
             get {
-                return ResourceManager.GetString("welcome", resourceCulture);
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

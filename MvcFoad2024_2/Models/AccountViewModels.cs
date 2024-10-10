@@ -49,8 +49,8 @@ namespace MvcFoad2024_2.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
-        [EmailAddress]
+        [Display(Name = "Identifiant")] 
+       // [EmailAddress]
         public string Email { get; set; }
 
         [Required]

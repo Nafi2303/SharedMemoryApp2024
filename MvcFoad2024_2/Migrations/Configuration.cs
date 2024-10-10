@@ -10,6 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(MvcFoad2024_2.Models.bdMemorySharedContext context)

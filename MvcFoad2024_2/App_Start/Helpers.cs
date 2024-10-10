@@ -14,8 +14,11 @@ namespace MvcFoad2024_2.App_Start
     public enum Flashlevel
     {
         info = 1,
+
         success = 2,
+
         warning = 3,
+
         Danger = 4
     }
 
@@ -25,7 +28,7 @@ namespace MvcFoad2024_2.App_Start
         {
             IList<string> messages = null;
             string key = String.Format("flash-{0}", level.ToString().ToLower());
-            messages = (controller.TempData.Containskey(key)) ? (IList<string>)controller.TempData[key] : null;
+            messages = (controller.TempData.ContainsKey(key)) ? (IList<string>)controller.TempData[key] : new List<string>();
             messages.Add(message);
             controller.TempData[key] = messages;
         }

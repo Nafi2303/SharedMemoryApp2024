@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcFoad2024_2.Models;
-
 using PagedList;
+using MvcFoad2024_2.App_Start;
+
 
 namespace MvcFoad2024_2.Controllers
 {
     public class AuteursController : Controller
     {
         private bdMemorySharedContext db = new bdMemorySharedContext();
+        Util Util = new Util();
         private int sizePage = 1;
 
         // GET: Auteurs
@@ -26,6 +29,51 @@ namespace MvcFoad2024_2.Controllers
             int pageNumner = (page ?? 1);
             return View(lesAuteurs.ToPagedList(pageNumner, sizePage));
         }
+
+        public DataTable GetTableAuteur()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Anciennete", typeof(int));
+            table.Columns.Add("NomUtilisateur", typeof(string));
+            table.Columns.Add("PrenomUtilisateur", typeof(string));
+            table.Columns.Add("TelUtilisateur", typeof(string));
+            table.Columns.Add("EmailUtilisateur", typeof(string));
+            table.Columns.Add("MatriculeUtilisateur", typeof(string));
+            table.Columns.Add("EtatUtilisateur", typeof(string));
+            var auteurs = db.auteurs.ToList();
+            foreach( var a in auteurs )
+            {
+                table.Rows.Add(a.Anciennete, a.NomUtilisateur, a.PrenomUtilisateur, a.TelUtilisateur, a.EmailUtilisateur, a.MatriculeUtilisateur, a.EtatUtilisateur);
+            }
+            
+            return table;
+        }
+
+
+        public ActionResult PrintAuteur()
+        {
+            CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            try
+            {
+                rpt.Load(Server.MapPath("~/Report/rptListeAuteurs.rpt"));
+                rpt.SetDataSource(GetTableAuteur());
+                Stream stream = rpt.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                Response.AppendHeader("Content-Disposition", "inline");
+                return File(stream, "application/pdf");
+            }
+            catch (Exception ex)
+            {
+                Util.WriteDataError("Auteur-PrintAuteur", ex.ToString());
+                return null;
+            }
+
+            finally
+            {
+                rpt.Dispose();
+                rpt.Close();
+            }
+        }
+
 
         // GET: Auteurs/Details/5
         public ActionResult Details(int? id)

@@ -10,7 +10,7 @@
 <h2>Liste des auteurs</h2>
 
 <p>
-    @Html.ActionLink("Nouveau", "Create")
+    @Html.ActionLink("Nouveau", "Create") | <a href="@Url.Action("PrintAuteur")" target="_blank">Imprimer</a>
 </p>
 <table class="table">
     <tr>
@@ -69,10 +69,10 @@
                 @Html.DisplayFor(modelItem => item.Anciennete)
             </td>
             <td>
-                <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="edit-icon" title="Edit">
+                <a href="@Url.Action("Edit", new { id = item.IdUtilisateur })" class="edit-icon" title="Edit">
                     <i class="ri-edit-2-fill"></i>
                 </a> |
-                <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="details-icon" title="Details">
+                <a href="@Url.Action("Details", new { id = item.IdUtilisateur })" class="details-icon" title="Details">
                     <i class="ri-article-fill"></i>
                 </a> |
                 <a href="@Url.Action("Delete", new { id = item.IdUtilisateur })" class="delete-icon" title="Delete">
